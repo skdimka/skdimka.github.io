@@ -1,0 +1,107 @@
+.project-card {
+  transform-origin: 50% 0;
+
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  background-color: var(--bg-card);
+
+  // nth-of-type: stack markers (spans) sit between the cards.
+  &:nth-of-type(even) &__media {
+    order: 2;
+  }
+
+  &__media {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+      radial-gradient(circle at 30% 20%, var(--accent-soft), transparent 60%),
+      var(--bg-raised);
+  }
+
+  &__body {
+    display: grid;
+    gap: 16px;
+    align-content: center;
+    padding: 40px;
+  }
+
+  &__title {
+    font-size: 26px;
+    letter-spacing: -0.01em;
+  }
+
+  &__summary {
+    color: var(--text-soft);
+  }
+
+  &__role {
+    padding: 12px 14px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+
+    font-size: 15px;
+    color: var(--text-soft);
+
+    background: var(--accent-soft);
+
+    strong {
+      color: var(--text);
+    }
+  }
+
+  &__highlights {
+    display: grid;
+    gap: 6px;
+
+    padding-left: 18px;
+
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  // Under the slider navigation.
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: center;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__link {
+    font-weight: 600;
+    color: var(--accent-text);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (width <= 860px) {
+    grid-template-columns: 1fr;
+
+    &:nth-of-type(even) &__media {
+      order: 0;
+    }
+
+    &__media {
+      padding: 16px;
+    }
+
+    &__body {
+      padding: 24px;
+    }
+  }
+}

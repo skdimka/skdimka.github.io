@@ -1,0 +1,18 @@
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+
+  &__group {
+    padding: 24px;
+  }
+
+  &__title {
+    margin-bottom: 14px;
+
+    font-size: 15px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+}

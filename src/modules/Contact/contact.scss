@@ -1,0 +1,34 @@
+.contact {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+
+  padding: 64px 24px;
+
+  text-align: center;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__text {
+    max-width: 520px;
+    color: var(--text-soft);
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+
+    margin-top: 8px;
+  }
+
+  &__footer {
+    margin-top: 48px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+  }
+}

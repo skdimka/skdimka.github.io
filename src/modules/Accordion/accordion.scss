@@ -1,0 +1,63 @@
+.accordion {
+  &__toggle {
+    cursor: pointer;
+
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+
+    padding: 8px 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+
+    background: var(--glass);
+
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: rgb(255 255 255 / 8%);
+    }
+  }
+
+  &__icon {
+    transform: translateY(-2px) rotate(45deg);
+
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentcolor;
+    border-bottom: 2px solid currentcolor;
+
+    transition: transform 0.3s;
+  }
+
+  &__toggle[aria-expanded='true'] &__icon {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  // Height animation without measuring: 0fr ↔ 1fr grid row.
+  &__panel {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+
+  &__inner {
+    overflow: hidden;
+    min-height: 0;
+    padding-top: 14px;
+    transition: padding-top 0.35s ease;
+  }
+
+  &.is-collapsed &__panel {
+    grid-template-rows: 0fr;
+  }
+
+  &.is-collapsed &__inner {
+    padding-top: 0;
+  }
+}

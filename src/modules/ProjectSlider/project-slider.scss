@@ -1,0 +1,59 @@
+@use 'swiper/css';
+
+.project-slider {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+
+  &__swiper {
+    width: 100%;
+  }
+
+  &__figure {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+
+    background: var(--bg-raised);
+    box-shadow: 0 18px 40px rgb(0 0 0 / 35%);
+  }
+
+  &__caption {
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  &__bullet {
+    cursor: pointer;
+
+    width: 18px;
+    height: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+
+    background: rgb(255 255 255 / 25%);
+
+    transition:
+      width 0.3s,
+      background-color 0.3s;
+
+    &--active {
+      width: 32px;
+      background: var(--accent);
+    }
+  }
+}

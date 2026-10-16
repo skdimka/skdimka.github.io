@@ -1,0 +1,60 @@
+---
+import { getImage } from 'astro:assets'
+import Base from '@/layouts/Base.astro'
+import { getContent } from '@/modules/Content/content'
+import { Header } from '@/modules/Header/Header'
+import { Hero } from '@/modules/Hero/Hero'
+import { Projects, type ProjectsItem } from '@/modules/Projects/Projects'
+import { Experience } from '@/modules/Experience/Experience'
+import { Skills } from '@/modules/Skills/Skills'
+import { Contact } from '@/modules/Contact/Contact'
+import type { Lang } from '@/modules/I18n/i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const { profile, projects, experience, skills } = getContent(lang)
+
+// Optimize screenshots at build time; React modules get plain <img> props.
+const sizes = '(max-width: 860px) 100vw, 560px'
+const items: ProjectsItem[] = await Promise.all(
+  projects.map(async ({ slides, ...project }) => ({
+    project,
+    slides: await Promise.all(
+      slides.map(async ({ image, caption }) => {
+        const optimized = await getImage({
+          src: image,
+          widths: [480, 800, 1200],
+          sizes,
+        })
+        return {
+          caption,
+          image: {
+            src: optimized.src,
+            srcSet: optimized.srcSet.attribute,
+            sizes,
+            width: image.width,
+            height: image.height,
+          },
+        }
+      }),
+    ),
+  })),
+)
+---
+
+<Base lang={lang}>
+  <Header lang={lang} cv={profile.cv} />
+  <main>
+    <Hero lang={lang} profile={profile} />
+    <Projects lang={lang} items={items} />
+    <Experience lang={lang} jobs={experience} />
+    <Skills lang={lang} groups={skills} />
+    <Contact lang={lang} profile={profile} year={new Date().getFullYear()} />
+  </main>
+  <script>
+    import '@/runtime/main'
+  </script>
+</Base>

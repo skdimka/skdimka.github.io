@@ -1,0 +1,21 @@
+// Design tokens exposed as CSS custom properties.
+:root {
+  --bg: #0b1220;
+  --bg-raised: #111b2e;
+  --bg-card: #0e1729; // opaque: stacked cards must hide the ones below
+  --glass: rgb(255 255 255 / 4%);
+  --glass-border: rgb(255 255 255 / 9%);
+  --text: #e6ecf5;
+  --text-soft: #c3cede;
+  --muted: #8b98ad;
+  --accent: #3b82f6;
+  --accent-strong: #2563eb; // 4.5:1+ with white text
+  --accent-soft: rgb(59 130 246 / 16%);
+  --accent-text: #93b8ff;
+  --radius: 18px;
+  --container-width: 1380px;
+  --header-height: 64px;
+  --font: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  color-scheme: dark;
+}

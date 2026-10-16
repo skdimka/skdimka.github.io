@@ -1,0 +1,41 @@
+.projects {
+  // Room above the pinned card for the edges of up to three cards below.
+  --stack-step: 14px;
+  --stack-top: calc(var(--header-height) + 16px + 3 * var(--stack-step));
+  --stack-height: max(520px, calc(100svh - var(--stack-top) - 16px));
+  --stack-gap: 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  // Zero net height. Its bottom edge is the next card's top in the flow and
+  // its top edge is `--stack-top` above that, so scroll triggers read as
+  // "card enters at the bottom" → "card is pinned" without any math.
+  &__marker {
+    pointer-events: none;
+    height: var(--stack-top);
+    margin-top: calc(var(--stack-gap) - var(--stack-top));
+  }
+
+  // Same-height cards pin under the header; the next one slides over the
+  // previous one, which steps up and shrinks (stack.logic.ts), so the
+  // cards underneath peek out as a stack.
+  @media (width > 860px) and (prefers-reduced-motion: no-preference) {
+    > .project-card {
+      position: sticky;
+      top: var(--stack-top);
+      height: var(--stack-height);
+    }
+
+    // Only an expanded accordion may need more room than the card has.
+    .project-card__body:has(.accordion:not(.is-collapsed)) {
+      scrollbar-width: thin;
+      overflow-y: auto;
+    }
+
+    .project-card__body {
+      scrollbar-width: thin;
+      overflow-y: auto;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.lang-switcher {
+  display: flex;
+
+  margin: 0;
+  padding: 3px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+
+  list-style: none;
+
+  background: var(--glass);
+
+  &__link {
+    display: block;
+
+    padding: 4px 10px;
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+
+    transition:
+      color 0.2s,
+      background-color 0.2s;
+
+    &:hover {
+      color: var(--text);
+    }
+
+    &[aria-current='page'] {
+      color: #fff;
+      background: var(--accent-strong);
+    }
+  }
+}

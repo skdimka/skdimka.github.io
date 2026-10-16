@@ -1,0 +1,43 @@
+.project-structure {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+
+  &__notice {
+    padding: 10px 14px;
+    border: 1px solid rgb(250 204 21 / 35%);
+    border-radius: 10px;
+
+    font-size: 14px;
+    color: #fde68a;
+
+    background: rgb(250 204 21 / 10%);
+  }
+
+  &__label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__tree {
+    margin: 0;
+    padding: 16px 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-soft);
+    list-style: none;
+
+    background: rgb(0 0 0 / 25%);
+  }
+
+  &__line {
+    overflow-wrap: anywhere;
+  }
+}

@@ -1,0 +1,26 @@
+// Shared breakpoints and layout mixins. Use with `@use '@/styles/mixins' as *;`
+// in modules, or `@use 'mixins' as *;` inside src/styles.
+
+$mobile-width: 768px;
+
+@mixin mobile {
+  @media (width <= $mobile-width) {
+    @content;
+  }
+}
+
+@mixin container {
+  display: block;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+
+  @media (width <= 1440px) {
+    /* stylelint-disable-next-line no-invalid-position-declaration */
+    max-width: calc(100% - 8rem);
+  }
+
+  @include mobile {
+    max-width: calc(100% - 2rem);
+  }
+}

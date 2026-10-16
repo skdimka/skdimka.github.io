@@ -1,0 +1,35 @@
+---
+import '@/styles/main.scss'
+import { getContent } from '@/modules/Content/content'
+import { homePath, languages, type Lang } from '@/modules/I18n/i18n'
+
+interface Props {
+  lang: Lang
+}
+
+const { lang } = Astro.props
+const { profile } = getContent(lang)
+const title = `${profile.name} — ${profile.role}`
+const description = profile.tagline
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {(Object.keys(languages) as Lang[]).map((code) => (
+      <link rel="alternate" hreflang={code} href={homePath(code)} />
+    ))}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'ru' ? 'ru_RU' : 'en_US'} />
+    <meta name="theme-color" content="#0b1220" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
