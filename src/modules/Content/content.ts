@@ -98,7 +98,6 @@ const skillItems = {
     'React',
     'Next.js',
     'Astro',
-    'Vue',
     'HTML',
     'CSS / SCSS',
   ],
@@ -397,7 +396,7 @@ const en: SiteContent = {
         'Payment success and failure pages with status dialogs, review and feedback modals, 404 page',
         'Video embeds from Rutube and VK Video, extended accordion, responsive layout',
       ],
-      stack: ['HTML', 'SCSS', 'JavaScript', 'Vue', 'GSAP', 'IMask'],
+      stack: ['HTML', 'SCSS', 'JavaScript', 'GSAP', 'IMask'],
       slides: [
         { image: pgusaDpoHome, caption: 'Home page with program search' },
         { image: pgusaDpoCatalog, caption: 'Programs catalog with filters' },
@@ -466,17 +465,9 @@ const en: SiteContent = {
       points: [
         "Build components and modules for the company's reusable module library on Astro, React 19, TypeScript and SCSS Modules",
         'Server, client and hybrid components to keep page JavaScript under control; Storybook with Vitest and Playwright as docs and test environment',
-        'Web apps, admin panels and website builders with React 18, Next.js and Vue; Redux Toolkit, RTK Query, MobX, React Hook Form + Zod',
+        'Web apps, admin panels and website builders with React 18 and Next.js; Redux Toolkit, RTK Query, MobX, React Hook Form + Zod',
         'Smaller React work: field validation and a quests component in a personal account, Metric card and Scale module for an analytics dashboard',
         'Contributed to a React Native app; code reviews and mentoring junior developers',
-      ],
-    },
-    {
-      role: 'Frontend Developer',
-      company: 'University startup',
-      period: 'Feb 2022 — Mar 2023',
-      points: [
-        'Client side of a web application with React, TypeScript, MobX and SCSS',
       ],
     },
   ],
@@ -754,17 +745,9 @@ const ru: SiteContent = {
       points: [
         'Разрабатываю компоненты и модули для внутренней библиотеки переиспользуемых модулей на Astro, React 19, TypeScript и SCSS Modules',
         'Серверные, клиентские и гибридные компоненты для контроля объёма JS на странице; Storybook с Vitest и Playwright как документация и среда тестирования',
-        'Веб-приложения, админ-панели и конструкторы сайтов на React 18, Next.js и Vue; Redux Toolkit, RTK Query, MobX, React Hook Form + Zod',
+        'Веб-приложения, админ-панели и конструкторы сайтов на React 18 и Next.js; Redux Toolkit, RTK Query, MobX, React Hook Form + Zod',
         'Небольшие задачи на React: валидация полей и компонент квестов в личном кабинете, карточка Metric и модуль Scale для аналитического дашборда',
         'Участвовал в разработке приложения на React Native; код-ревью и менторинг младших разработчиков',
-      ],
-    },
-    {
-      role: 'Frontend-разработчик',
-      company: 'Университетский стартап',
-      period: 'Февраль 2022 — март 2023',
-      points: [
-        'Клиентская часть веб-приложения на React, TypeScript, MobX и SCSS',
       ],
     },
   ],
